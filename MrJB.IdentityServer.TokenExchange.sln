@@ -3,12 +3,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DF51EEFF-AE9C-4A3A-8724-03D991AB6F32}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		build.ps1 = build.ps1
+		README.md = README.md
+		run-it.ps1 = run-it.ps1
+		run.ps1 = run.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DD47FF02-E9EF-4374-888F-170E3DE2A526}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{964699F6-4E42-4E0B-93C1-390F24DD1969}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MrJB.IdentityServer", "src\MrJB.IdentityServer\MrJB.IdentityServer.csproj", "{CEBB7CAA-6448-48E6-B175-26959AD42C7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEBB7CAA-6448-48E6-B175-26959AD42C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBB7CAA-6448-48E6-B175-26959AD42C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBB7CAA-6448-48E6-B175-26959AD42C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBB7CAA-6448-48E6-B175-26959AD42C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CEBB7CAA-6448-48E6-B175-26959AD42C7E} = {DD47FF02-E9EF-4374-888F-170E3DE2A526}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C42D0FD6-B0FF-493C-B504-18F4AFD537FB}
 	EndGlobalSection
 EndGlobal
