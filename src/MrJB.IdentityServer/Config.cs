@@ -1,4 +1,5 @@
 ﻿using Duende.IdentityServer.Models;
+using IdentityModel;
 
 namespace MrJB.IdentityServer;
 
@@ -28,7 +29,7 @@ public static class Config
                 ClientName = "Client Credentials Client",
 
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
-                ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
+                ClientSecrets = { new Secret("8C593E98-4099-40B6-9A37-9A99E9984EEE".Sha256()) },
 
                 AllowedScopes = { "scope1" }
             },
@@ -37,7 +38,7 @@ public static class Config
             new Client
             {
                 ClientId = "interactive",
-                ClientSecrets = { new Secret("49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256()) },
+                ClientSecrets = { new Secret("F611C82D-DA60-43CF-B2F0-E5D016BE902E".Sha256()) },
                     
                 AllowedGrantTypes = GrantTypes.Code,
 
@@ -47,6 +48,62 @@ public static class Config
 
                 AllowOfflineAccess = true,
                 AllowedScopes = { "openid", "profile", "scope2" }
+            },
+
+            /* token exchange */
+            new Client {
+                ClientId = "client-token-exchange",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "Token Exchange (Client)",
+                AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
+                RedirectUris = {
+                    "http://localhost:5473/signin-oidc"
+                },
+                PostLogoutRedirectUris = {
+                    "http://localhost:5473/signin-oidc"
+                },
+                // scopes that client has access to
+                AllowedScopes = {
+                    "api1",
+                    "api2",
+                    "openid",
+                    "profile",
+                    "email",
+                    "verification"
+                },
+                AllowOfflineAccess = true,
+                EnableLocalLogin = false,
+                AccessTokenType = AccessTokenType.Reference,
+                RequirePkce = true
+            },
+            
+            /* token exchange for apim demo */
+            new Client {
+                ClientId = "client-apim-token-exchange",
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                ClientName = "Token Exchange (APIM)",
+                AllowedGrantTypes = new List<string> { 
+                    OidcConstants.GrantTypes.TokenExchange
+                },
+                RedirectUris = {
+                    "http://localhost:5473/signin-oidc"
+                },
+                PostLogoutRedirectUris = {
+                    "http://localhost:5473/signin-oidc"
+                },
+                // scopes that client has access to
+                AllowedScopes = {
+                    "api1",
+                    "api2",
+                    "openid",
+                    "profile",
+                    "email",
+                    "verification"
+                },
+                AllowOfflineAccess = true,
+                EnableLocalLogin = false,
+                AccessTokenType = AccessTokenType.Jwt,
+                RequirePkce = true
             },
         };
 }
