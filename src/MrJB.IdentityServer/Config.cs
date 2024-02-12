@@ -62,7 +62,7 @@ public static class Config
                 PostLogoutRedirectUris = {
                     "http://localhost:5473/signin-oidc"
                 },
-                // scopes that client has access to
+                // allowed scopes
                 AllowedScopes = {
                     "api1",
                     "api2",
